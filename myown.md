@@ -1,8 +1,11 @@
-GMR-master/
-├── assets/                      ← 资源目录（机器人模型、身体模型、测试数据）
-├── general_motion_retargeting/  ← 核心算法库（IK求解、重定向逻辑）
-├── scripts/                     ← 可执行脚本（用户入口）
-└── third_party/                 ← 第三方依赖（FBX导入器等）
+# json
+"MFL1_HIPR": [
+    "left_hip",      <-- 1. 对应人体哪个关节
+    0,               <-- 2. pos_weight（位置权重）
+    10,              <-- 3. rot_weight（旋转权重）
+    [0.0, 0.0, 0.0], <-- 4. pos_offset（位置偏移）
+    [0.4267, ...]    <-- 5. rot_offset（旋转偏移，四元数）
+]
 
 
 cd /home/joshua/桌面/GMR-master && conda run -n gmr 
@@ -24,11 +27,7 @@ python scripts/smplx_to_robot.py \
 cd /home/joshua/桌面/GMR-master
 conda activate gmr
 # tain
-python scripts/smplx_to_robot.py \
-  --smplx_file amass_data/CMU/01/01_02_stageii.npz \
-  --robot sr1_v1 \
-  --save_path outputs/sr1_v1_test.pkl \
-  --rate_limit
+python scripts/smplx_to_robot.py   --smplx_file amass_data/CMU/143/143_25_stageii.npz   --robot sr1_v1   --save_path outputs/sr1_v1_test.pkl   --rate_limit   --auto_ground   --ground_offset 0.0
 # play
 不录制
 python scripts/vis_robot_motion.py \

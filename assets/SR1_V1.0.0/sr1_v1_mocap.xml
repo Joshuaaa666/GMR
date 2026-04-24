@@ -37,17 +37,6 @@
     <mesh name="mfl2_wheel" content_type="model/stl" file="meshes/mfl2_wheel.stl" scale="0.001 0.001 0.001" />
   </asset>
   <worldbody>
-    <geom
-      name="floor"
-      type="plane"
-      size="0 0 0.01"
-      pos="0 0 0"
-      rgba="0.8 0.8 0.8 1"
-      contype="1"
-      conaffinity="0"
-      priority="1"
-      friction="0.6"
-      condim="3" />
     <body name="MBASE" pos="0 0 0">
       <freejoint name="root_free" />
       <inertial pos="0.0086829 -0.002961 0.0919849" mass="24.9001878" fullinertia="0.8690531 1.0128785 1.4595611 0.0206831 -0.0082502 0.0084967" />
@@ -187,4 +176,90 @@
       </body>
     </body>
   </worldbody>
+
+  <contact>
+    <exclude body1="MBASE" body2="MFL1_HIPR"/>
+    <exclude body1="MBASE" body2="MFR1_HIPR"/>
+    <exclude body1="MBASE" body2="MRL1_HIPR"/>
+    <exclude body1="MBASE" body2="MRR1_HIPR"/>
+    <exclude body1="MFL1_HIPR" body2="MFL2_WHEEL"/>
+    <exclude body1="MFR1_HIPR" body2="MFR2_WHEEL"/>
+    <exclude body1="MRL1_HIPR" body2="MRL2_WHEEL"/>
+    <exclude body1="MRR1_HIPR" body2="MRR2_WHEEL"/>
+    <exclude body1="MBASE" body2="MWB1_WAISTR"/>
+    <exclude body1="MWB1_WAISTR" body2="MWB2_WAISTY"/>
+    <exclude body1="MWB2_WAISTY" body2="MWB3_WAISTP"/>
+    <exclude body1="MWB3_WAISTP" body2="MAL1_SHP"/>
+    <exclude body1="MWB3_WAISTP" body2="MAR1_SHP"/>
+    <exclude body1="MAL1_SHP" body2="MAL2_SHR"/>
+    <exclude body1="MAL2_SHR" body2="MAL3_SHY"/>
+    <exclude body1="MAL3_SHY" body2="MAL4_ELP"/>
+    <exclude body1="MAL4_ELP" body2="MAL5_WRY"/>
+    <exclude body1="MAL5_WRY" body2="MAL6_WRP"/>
+    <exclude body1="MAR1_SHP" body2="MAR2_SHR"/>
+    <exclude body1="MAR2_SHR" body2="MAR3_SHY"/>
+    <exclude body1="MAR3_SHY" body2="MAR4_ELP"/>
+    <exclude body1="MAR4_ELP" body2="MAR5_WRY"/>
+    <exclude body1="MAR5_WRY" body2="MAR6_WRP"/>
+    <exclude body1="MWB3_WAISTP" body2="MHD1_HEADY"/>
+    <exclude body1="MHD1_HEADY" body2="MHD2_HEADP"/>
+  </contact>
+
+  <actuator>
+    <position name="Jfl1_hipr" joint="Jfl1_hipr" ctrlrange="-1.91986 1.91986" kp="200" kv="20"/>
+    <motor name="Jfl2_wheel" joint="Jfl2_wheel" ctrlrange="-100 100" gear="1"/>
+    <position name="Jfr1_hipr" joint="Jfr1_hipr" ctrlrange="-1.91986 1.91986" kp="200" kv="20"/>
+    <motor name="Jfr2_wheel" joint="Jfr2_wheel" ctrlrange="-100 100" gear="1"/>
+    <position name="Jrl1_hipr" joint="Jrl1_hipr" ctrlrange="-1.91986 1.91986" kp="200" kv="20"/>
+    <motor name="Jrl2_wheel" joint="Jrl2_wheel" ctrlrange="-100 100" gear="1"/>
+    <position name="Jrr1_hipr" joint="Jrr1_hipr" ctrlrange="-1.91986 1.91986" kp="200" kv="20"/>
+    <motor name="Jrr2_wheel" joint="Jrr2_wheel" ctrlrange="-100 100" gear="1"/>
+    
+    <position name="Jwb1_waistr" joint="Jwb1_waistr" ctrlrange="-1.22173 0.0872665" kp="800" kv="80"/>
+    <position name="Jwb2_waisty" joint="Jwb2_waisty" ctrlrange="-2.0944 0.785398" kp="800" kv="80"/>
+    <position name="Jwb3_waistp" joint="Jwb3_waistp" ctrlrange="-0.872665 0.174533" kp="800" kv="80"/>
+    
+    <position name="Jal1_armr" joint="Jal1_armr" ctrlrange="-2.26893 3.14159" kp="300" kv="30"/>
+    <position name="Jal2_armp" joint="Jal2_armp" ctrlrange="-3.14159 0.10472" kp="250" kv="25"/>
+    <position name="Jal3_army" joint="Jal3_army" ctrlrange="-1.5708 1.5708" kp="200" kv="20"/>
+    <position name="Jal4_elbp" joint="Jal4_elbp" ctrlrange="0 2.0944" kp="150" kv="15"/>
+    <position name="Jal5_wristy" joint="Jal5_wristy" ctrlrange="-1.5708 1.5708" kp="80" kv="8"/>
+    <position name="Jal6_wristr" joint="Jal6_wristr" ctrlrange="-0.872665 0.872665" kp="50" kv="5"/>
+    
+    <position name="Jar1_armr" joint="Jar1_armr" ctrlrange="-2.26893 3.14159" kp="300" kv="30"/>
+    <position name="Jar2_armp" joint="Jar2_armp" ctrlrange="-0.10472 3.14159" kp="250" kv="25"/>
+    <position name="Jar3_army" joint="Jar3_army" ctrlrange="-1.5708 1.5708" kp="200" kv="20"/>
+    <position name="Jar4_elbp" joint="Jar4_elbp" ctrlrange="0 2.0944" kp="150" kv="15"/>
+    <position name="Jar5_wristy" joint="Jar5_wristy" ctrlrange="-1.5708 1.5708" kp="80" kv="8"/>
+    <position name="Jar6_wristr" joint="Jar6_wristr" ctrlrange="-0.872665 0.872665" kp="50" kv="5"/>
+    
+    <position name="Jhd1_heady" joint="Jhd1_heady" ctrlrange="-1.5708 1.5708" kp="100" kv="10"/>
+    <position name="Jhd2_headp" joint="Jhd2_headp" ctrlrange="-0.558505 0.279253" kp="100" kv="10"/>
+  </actuator>
+
+  <statistic center="1.0 0.7 1.0" extent="0.8"/>
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.1 0.1 0.1" specular="0.9 0.9 0.9"/>
+    <rgba haze="0.15 0.25 0.35 1"/>
+    <global azimuth="-140" elevation="-20" offwidth="2080" offheight="1170"/>
+  </visual>
+  <asset>
+     <texture type="skybox" builtin="gradient" rgb1="1 1 1" rgb2="1 1 1" width="800" height="800"/>
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="1 1 1" rgb2="1 1 1" markrgb="0 0 0"
+      width="300" height="300"/>
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0"/>
+    <texture type="skybox" builtin="gradient" rgb1=".4 .5 .6" rgb2="0 0 0" width="100" height="100"/>
+    <texture builtin="flat" height="1278" mark="cross" markrgb="1 1 1" name="texgeom" random="0.01" rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" type="cube" width="127"/>
+    <texture name="texplane" builtin="checker" height="512" width="512" rgb1=".2 .3 .4" rgb2=".1 .15 .2" type="2d" />
+    <material name="MatPlane" reflectance="0.5" shininess="0.01" specular="0.1" texrepeat="1 1" texture="texplane" texuniform="true" />
+    <material name="geom" texture="texgeom" texuniform="true"/>
+  </asset>
+  <worldbody>
+    <geom name="floor" size="0 0 0.01" type="plane" material="groundplane" contype="1" conaffinity="0" priority="1"
+      friction="0.6" condim="3"/>
+
+        <light diffuse=".5 .5 .5" pos="-3 -3 5" dir="3 3 -5" castshadow="true"/>
+
+  </worldbody>
+
 </mujoco>
