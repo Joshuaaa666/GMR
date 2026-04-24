@@ -1,0 +1,190 @@
+<mujoco model="SR1_V1.0.0">
+  <compiler angle="radian" />
+  <asset>
+    <mesh name="mbase" content_type="model/stl" file="meshes/mbase.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mfl1_hipr" content_type="model/stl" file="meshes/mfl1_hipr.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mfr1_hipr" content_type="model/stl" file="meshes/mfr1_hipr.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mrl1_hipr" content_type="model/stl" file="meshes/mrl1_hipr.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mrr1_hipr" content_type="model/stl" file="meshes/mrr1_hipr.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mwaist_base" content_type="model/stl" file="meshes/mwaist_base.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mwb1_waistr" content_type="model/stl" file="meshes/mwb1_waistr.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mwb2_waisty" content_type="model/stl" file="meshes/mwb2_waisty.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mwb3_waistp" content_type="model/stl" file="meshes/mwb3_waistp.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mal0_base" content_type="model/stl" file="meshes/mal0_base.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mar0_base" content_type="model/stl" file="meshes/mar0_base.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mhd_base" content_type="model/stl" file="meshes/mhd_base.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mhd1_heady" content_type="model/stl" file="meshes/mhd1_heady.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mhd2_headp" content_type="model/stl" file="meshes/mhd2_headp.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mar1_shp" content_type="model/stl" file="meshes/mar1_shp.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mar2_shr" content_type="model/stl" file="meshes/mar2_shr.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mar3_shy" content_type="model/stl" file="meshes/mar3_shy.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mar4_elp" content_type="model/stl" file="meshes/mar4_elp.stl" scale="0.001 0.001 0.001" />
+    <mesh name="far4_elp" content_type="model/stl" file="meshes/far4_elp.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mar5_wry" content_type="model/stl" file="meshes/mar5_wry.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mar6_wrp" content_type="model/stl" file="meshes/mar6_wrp.stl" scale="0.001 0.001 0.001" />
+    <mesh name="far6_wrp" content_type="model/stl" file="meshes/far6_wrp.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mal1_shp" content_type="model/stl" file="meshes/mal1_shp.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mal2_shr" content_type="model/stl" file="meshes/mal2_shr.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mal3_shy" content_type="model/stl" file="meshes/mal3_shy.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mal4_elp" content_type="model/stl" file="meshes/mal4_elp.stl" scale="0.001 0.001 0.001" />
+    <mesh name="fal4_elp" content_type="model/stl" file="meshes/fal4_elp.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mal5_wry" content_type="model/stl" file="meshes/mal5_wry.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mal6_wrp" content_type="model/stl" file="meshes/mal6_wrp.stl" scale="0.001 0.001 0.001" />
+    <mesh name="fal6_wrp" content_type="model/stl" file="meshes/fal6_wrp.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mrr2_wheel" content_type="model/stl" file="meshes/mrr2_wheel.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mrl2_wheel" content_type="model/stl" file="meshes/mrl2_wheel.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mfr2_wheel" content_type="model/stl" file="meshes/mfr2_wheel.stl" scale="0.001 0.001 0.001" />
+    <mesh name="mfl2_wheel" content_type="model/stl" file="meshes/mfl2_wheel.stl" scale="0.001 0.001 0.001" />
+  </asset>
+  <worldbody>
+    <geom
+      name="floor"
+      type="plane"
+      size="0 0 0.01"
+      pos="0 0 0"
+      rgba="0.8 0.8 0.8 1"
+      contype="1"
+      conaffinity="0"
+      priority="1"
+      friction="0.6"
+      condim="3" />
+    <body name="MBASE" pos="0 0 0">
+      <freejoint name="root_free" />
+      <inertial pos="0.0086829 -0.002961 0.0919849" mass="24.9001878" fullinertia="0.8690531 1.0128785 1.4595611 0.0206831 -0.0082502 0.0084967" />
+      <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mbase" />
+      <geom pos="0 0 0.125" quat="1 0 0 0" type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mwaist_base" />
+      <body name="MFL1_HIPR" pos="0.17 0.165 0.078">
+        <inertial pos="-1.34e-05 -0.0336705 -0.0421457" quat="0.676033 -0.208013 0.20742 0.675786" mass="0.796142" diaginertia="0.00149429 0.0012601 0.000782812" />
+        <joint name="Jfl1_hipr" pos="0 0 0" axis="0 0 -1" range="-1.91986 1.91986" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+        <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mfl1_hipr" />
+        <body name="MFL2_WHEEL" pos="0 -0.0483 -0.087">
+          <inertial pos="2e-07 0.0501086 4.7e-06" quat="0.499926 0.500074 0.499926 0.500074" mass="0.421485" diaginertia="0.000873 0.0005332 0.0005331" />
+          <joint name="Jfl2_wheel" pos="0 0 0" axis="0 1 0" />
+          <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mfl2_wheel" />
+        </body>
+      </body>
+      <body name="MFR1_HIPR" pos="0.17 -0.165 0.078">
+        <inertial pos="1.34e-05 0.0336705 -0.0421457" quat="0.676033 0.208013 -0.20742 0.675786" mass="0.796142" diaginertia="0.00149429 0.0012601 0.000782812" />
+        <joint name="Jfr1_hipr" pos="0 0 0" axis="0 0 -1" range="-1.91986 1.91986" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+        <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mfr1_hipr" />
+        <body name="MFR2_WHEEL" pos="0 0.0483 -0.087">
+          <inertial pos="-2e-07 -0.0501086 4.7e-06" quat="0.500074 0.499926 0.500074 0.499926" mass="0.421485" diaginertia="0.000873 0.0005332 0.0005331" />
+          <joint name="Jfr2_wheel" pos="0 0 0" axis="0 -1 0" />
+          <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mfr2_wheel" />
+        </body>
+      </body>
+      <body name="MRL1_HIPR" pos="-0.17 0.165 0.078">
+        <inertial pos="-1.34e-05 -0.0336705 -0.0421457" quat="0.676033 -0.208013 0.20742 0.675786" mass="0.796142" diaginertia="0.00149429 0.0012601 0.000782812" />
+        <joint name="Jrl1_hipr" pos="0 0 0" axis="0 0 -1" range="-1.91986 1.91986" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+        <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mrl1_hipr" />
+        <body name="MRL2_WHEEL" pos="0 -0.0483 -0.087">
+          <inertial pos="2e-07 0.0501086 4.7e-06" quat="0.499926 0.500074 0.499926 0.500074" mass="0.421485" diaginertia="0.000873 0.0005332 0.0005331" />
+          <joint name="Jrl2_wheel" pos="0 0 0" axis="0 1 0" />
+          <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mrl2_wheel" />
+        </body>
+      </body>
+      <body name="MRR1_HIPR" pos="-0.17 -0.165 0.078">
+        <inertial pos="1.34e-05 0.0336705 -0.0421457" quat="0.676033 0.208013 -0.20742 0.675786" mass="0.796142" diaginertia="0.00149429 0.0012601 0.000782812" />
+        <joint name="Jrr1_hipr" pos="0 0 0" axis="0 0 -1" range="-1.91986 1.91986" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+        <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mrr1_hipr" />
+        <body name="MRR2_WHEEL" pos="0 0.0483 -0.087">
+          <inertial pos="-2e-07 -0.0501086 4.7e-06" quat="0.500074 0.499926 0.500074 0.499926" mass="0.421485" diaginertia="0.000873 0.0005332 0.0005331" />
+          <joint name="Jrr2_wheel" pos="0 0 0" axis="0 -1 0" />
+          <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mrr2_wheel" />
+        </body>
+      </body>
+      <body name="MWB1_WAISTR" pos="0 -0.05475 0.19">
+        <inertial pos="0.0012345 0.0390939 0.270592" quat="0.999258 0.0379516 0.000277641 -0.00653111" mass="6.01051" diaginertia="0.156419 0.147763 0.0154012" />
+        <joint name="Jwb1_waistr" pos="0 0 0" axis="0 -1 0" range="-1.22173 0.0872665" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+        <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mwb1_waistr" />
+        <body name="MWB2_WAISTY" pos="1e-05 0 0.41">
+          <inertial pos="0.0133923 0.0385871 0.239507" quat="0.995324 0.0738776 0.0582547 0.0218894" mass="5.55028" diaginertia="0.0787391 0.0661344 0.0242048" />
+          <joint name="Jwb2_waisty" pos="0 0 0" axis="0 -1 0" range="-2.0944 0.785398" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+          <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mwb2_waisty" />
+          <body name="MWB3_WAISTP" pos="0.03 0 0.32">
+            <inertial pos="-0.0310008 0.0375601 0.237048" quat="0.987825 0.0748222 -0.0709092 0.116512" mass="10.7737" diaginertia="0.213607 0.206482 0.0841121" />
+            <joint name="Jwb3_waistp" pos="0 0 0" axis="0 -1 0" range="-0.872665 0.174533" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+            <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mwb3_waistp" />
+            <geom pos="-0.0300232 0.13475 0.328407" quat="1 0 0 0" type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mal0_base" />
+            <geom pos="-0.0299967 -0.02525 0.328407" quat="1 0 0 0" type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mar0_base" />
+            <geom pos="-0.0609921 0.05475 0.405" quat="1 0 0 0" type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mhd_base" />
+            <body name="MAL1_SHP" pos="-0.0300232 0.190324 0.334248" quat="0.99863 0.052336 0 0">
+              <inertial pos="0.0020554 0.0591199 0.0001072" quat="0.707497 0.706413 -0.0199386 -0.0055574" mass="0.983307" diaginertia="0.00125641 0.00114385 0.000901138" />
+              <joint name="Jal1_armr" pos="0 0 0" axis="0 1 0" range="-2.26893 3.14159" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+              <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mal1_shp" />
+              <body name="MAL2_SHR" pos="-0.03125 0.06875 0" quat="0.99863 -0.052336 0 0">
+                <inertial pos="0.0352176 4.29e-05 -0.0291185" quat="0.689136 0.165898 0.167606 0.685184" mass="0.402256" diaginertia="0.00104501 0.000820482 0.000626809" />
+                <joint name="Jal2_armp" pos="0 0 0" axis="-1 0 0" range="-3.14159 0.10472" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+                <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mal2_shr" />
+                <body name="MAL3_SHY" pos="0.0312356 -2.73e-05 -0.0945529">
+                  <inertial pos="-0.0007195 0.0003 -0.080871" quat="0.997531 0.00413531 0.00559687 -0.0698833" mass="1.14284" diaginertia="0.00393417 0.00388642 0.000850205" />
+                  <joint name="Jal3_army" pos="0 0 0" axis="0 0 1" range="-1.5708 1.5708" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+                  <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mal3_shy" />
+                  <body name="MAL4_ELP" pos="0 -0.0260116 -0.133688" quat="1 -3.68e-05 0 0">
+                    <inertial pos="-0.00354865 0.0261498 -0.0282704" quat="0.996638 -0.0798854 0.0181211 0.00148336" mass="0.372735" diaginertia="0.000888724 0.000622163 0.000601806" />
+                    <joint name="Jal4_elbp" pos="0 0 0" axis="0 -1 0" range="0 2.0944" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+                    <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mal4_elp" />
+                    <geom pos="1.42e-05 0.026 0" type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="fal4_elp" />
+                    <body name="MAL5_WRY" pos="0 0.026 -0.0871975">
+                      <inertial pos="0.0002437 0.0016117 -0.0643613" quat="0.999678 0.0161543 0.00943339 -0.0171316" mass="1.0783" diaginertia="0.00238805 0.00227711 0.000831435" />
+                      <joint name="Jal5_wristy" pos="0 0 0" axis="0 0 1" range="-1.5708 1.5708" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+                      <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mal5_wry" />
+                      <body name="MAL6_WRP" pos="3.56e-05 -1e-07 -0.178452">
+                        <inertial pos="-0.00561886 -0.000300561 -8.18894e-05" quat="-0.0418308 0.700084 0.046659 0.711306" mass="0.444132" diaginertia="0.000232357 0.000225953 0.000206591" />
+                        <joint name="Jal6_wristr" pos="0 0 0" axis="0 -1 0" range="-0.872665 0.872665" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+                        <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mal6_wrp" />
+                        <geom pos="0.024125 0 0" type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="fal6_wrp" />
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+            <body name="MAR1_SHP" pos="-0.0299967 -0.0808244 0.334248" quat="0.99863 -0.052336 0 0">
+              <inertial pos="-0.0020554 -0.0591199 0.0001072" quat="0.706413 0.707497 -0.0055574 -0.0199386" mass="0.983307" diaginertia="0.00125641 0.00114385 0.000901138" />
+              <joint name="Jar1_armr" pos="0 0 0" axis="0 -1 0" range="-2.26893 3.14159" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+              <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mar1_shp" />
+              <body name="MAR2_SHR" pos="-0.0371305 -0.06875 0" quat="0.99863 0.052336 0 0">
+                <inertial pos="0.0410985 4.29e-05 -0.0291185" quat="0.689136 0.165898 0.167606 0.685184" mass="0.402256" diaginertia="0.00104501 0.000820482 0.000626809" />
+                <joint name="Jar2_armp" pos="0 0 0" axis="-1 0 0" range="-0.10472 3.14159" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+                <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mar2_shr" />
+                <body name="MAR3_SHY" pos="0.0371165 -2.73e-05 -0.0945529">
+                  <inertial pos="-0.0007195 0.0003 -0.080871" quat="0.997531 0.00413531 0.00559687 -0.0698833" mass="1.14284" diaginertia="0.00393417 0.00388642 0.000850205" />
+                  <joint name="Jar3_army" pos="0 0 0" axis="0 0 1" range="-1.5708 1.5708" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+                  <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mar3_shy" />
+                  <body name="MAR4_ELP" pos="0 -0.0260116 -0.133688" quat="1 -3.68e-05 0 0">
+                    <inertial pos="-0.00354865 0.0261498 -0.0282704" quat="0.996638 -0.0798854 0.0181211 0.00148336" mass="0.372735" diaginertia="0.000888724 0.000622163 0.000601806" />
+                    <joint name="Jar4_elbp" pos="0 0 0" axis="0 -1 0" range="0 2.0944" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+                    <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mar4_elp" />
+                    <geom pos="1.42e-05 0.026 0" type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="far4_elp" />
+                    <body name="MAR5_WRY" pos="0 0.026 -0.0871975" quat="0.999965 0 0 0.00838145">
+                      <inertial pos="0.0002437 0.0016117 -0.0643613" quat="0.999678 0.0161543 0.00943339 -0.0171316" mass="1.0783" diaginertia="0.00238805 0.00227711 0.000831435" />
+                      <joint name="Jar5_wristy" pos="0 0 0" axis="0 0 1" range="-1.5708 1.5708" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+                      <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mar5_wry" />
+                      <body name="MAR6_WRP" pos="3.56e-05 -1e-07 -0.178452">
+                        <inertial pos="-0.00561886 -0.000300561 -8.18894e-05" quat="-0.0418308 0.700084 0.046659 0.711306" mass="0.444132" diaginertia="0.000232357 0.000225953 0.000206591" />
+                        <joint name="Jar6_wristr" pos="0 0 0" axis="0 -1 0" range="-0.872665 0.872665" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+                        <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mar6_wrp" />
+                        <geom pos="0.024125 0 0" type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="far6_wrp" />
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+            <body name="MHD1_HEADY" pos="-0.0489921 0.05475 0.4967">
+              <inertial pos="-0.0010285 -0.0025497 0.0187775" quat="0.0268014 0.704094 0.0222932 0.709251" mass="0.201413" diaginertia="7.77501e-05 6.7652e-05 5.04979e-05" />
+              <joint name="Jhd1_heady" pos="0 0 0" axis="0 0 1" range="-1.5708 1.5708" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+              <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mhd1_heady" />
+              <body name="MHD2_HEADP" pos="-0.012 0 0.02025">
+                <inertial pos="0.0344163 5e-07 0.0559281" quat="0.671682 -0.220984 -0.22099 0.671695" mass="9.86913" diaginertia="0.0452911 0.0384098 0.0314942" />
+                <joint name="Jhd2_headp" pos="0 0 0" axis="0 1 0" range="-0.558505 0.279253" actuatorfrcrange="-1000000000 1000000000" damping="0.1" frictionloss="0.1" />
+                <geom type="mesh" rgba="0.498043 0.498043 0.498043 1" mesh="mhd2_headp" />
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>

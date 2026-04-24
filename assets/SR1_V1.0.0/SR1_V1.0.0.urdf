@@ -1,0 +1,1051 @@
+<?xml version="1.0"?>
+<robot name="SR1_V1.0.0">
+
+  <link name="MBASE">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mbase.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MBASE_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mbase.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0086829 -0.002961 0.0919849" rpy="0 0 0" />
+      <mass value="24.9001878" />
+      <inertia ixx="0.8690531" ixy="0.0206831" ixz="-0.0082502" iyy="1.0128785" iyz="0.0084967" izz="1.4595611" />
+    </inertial>
+  </link>
+
+  <link name="MFL1_HIPR">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mfl1_hipr.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MFL1_HIPR_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mfl1_hipr.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-0.0000134 -0.0336705 -0.0421457" rpy="0 0 0" />
+      <mass value="0.7961421" />
+      <inertia ixx="0.0012601" ixy="0.0000003" ixz="0.0000002" iyy="0.0012699" iyz="-0.0003306" izz="0.0010072" />
+    </inertial>
+  </link>
+
+  <link name="MFR1_HIPR">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mfr1_hipr.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MFR1_HIPR_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mfr1_hipr.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0000134 0.0336705 -0.0421457" rpy="0 0 0" />
+      <mass value="0.7961421" />
+      <inertia ixx="0.0012601" ixy="0.0000003" ixz="-0.0000002" iyy="0.0012699" iyz="0.0003306" izz="0.0010072" />
+    </inertial>
+  </link>
+
+  <link name="MRL1_HIPR">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mrl1_hipr.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MRL1_HIPR_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mrl1_hipr.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-0.0000134 -0.0336705 -0.0421457" rpy="0 0 0" />
+      <mass value="0.7961421" />
+      <inertia ixx="0.0012601" ixy="0.0000003" ixz="0.0000002" iyy="0.0012699" iyz="-0.0003306" izz="0.0010072" />
+    </inertial>
+  </link>
+
+  <link name="MRR1_HIPR">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mrr1_hipr.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MRR1_HIPR_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mrr1_hipr.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0000134 0.0336705 -0.0421457" rpy="0 0 0" />
+      <mass value="0.7961421" />
+      <inertia ixx="0.0012601" ixy="0.0000003" ixz="-0.0000002" iyy="0.0012699" iyz="0.0003306" izz="0.0010072" />
+    </inertial>
+  </link>
+
+  <link name="MWAIST_BASE">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mwaist_base.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MWAIST_BASE_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mwaist_base.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0000459 -0.021848 0.0463073" rpy="0 0 0" />
+      <mass value="3.8334339" />
+      <inertia ixx="0.0134431" ixy="0.0000099" ixz="0.0000044" iyy="0.007559" iyz="0.0015632" izz="0.0140951" />
+    </inertial>
+  </link>
+
+  <link name="MWB1_WAISTR">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mwb1_waistr.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MWB1_WAISTR_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mwb1_waistr.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0012345 0.0390939 0.2705918" rpy="0 0 0" />
+      <mass value="6.0105097" />
+      <inertia ixx="0.1564179" ixy="-0.0001122" ixz="-0.0000169" iyy="0.1470031" iyz="0.0100108" izz="0.0161627" />
+    </inertial>
+  </link>
+
+  <link name="MWB2_WAISTY">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mwb2_waisty.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MWB2_WAISTY_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mwb2_waisty.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0133923 0.0385871 0.2395072" rpy="0 0 0" />
+      <mass value="5.550275" />
+      <inertia ixx="0.0779488" ixy="0.0013749" ixz="-0.0063194" iyy="0.0652931" iyz="0.005878" izz="0.0258364" />
+    </inertial>
+  </link>
+
+  <link name="MWB3_WAISTP">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mwb3_waistp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MWB3_WAISTP_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mwb3_waistp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-0.0256474 0.0546047 0.2107181" rpy="0 0 0" />
+      <mass value="8.7165547" />
+      <inertia ixx="0.1594057" ixy="-0.0000287" ixz="0.0095659" iyy="0.1532058" iyz="-0.0015788" izz="0.0609449" />
+    </inertial>
+  </link>
+
+  <link name="MAL0_BASE">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mal0_base.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MAL0_BASE_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mal0_base.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-0.0000046 0.0221698 0.0020095" rpy="0 0 0" />
+      <mass value="0.8801428" />
+      <inertia ixx="0.000679" ixy="-0.0000001" ixz="0" iyy="0.000819" iyz="-0.0000002" izz="0.0006734" />
+    </inertial>
+  </link>
+
+  <link name="MAR0_BASE">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mar0_base.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MAR0_BASE_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mar0_base.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0000046 -0.0221698 0.0020095" rpy="0 0 0" />
+      <mass value="0.8801428" />
+      <inertia ixx="0.000679" ixy="-0.0000001" ixz="0" iyy="0.000819" iyz="0.0000002" izz="0.0006734" />
+    </inertial>
+  </link>
+
+  <link name="MHD_BASE">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mhd_base.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MHD_BASE_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mhd_base.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0006255 -0.0000463 0.0507867" rpy="0 0 0" />
+      <mass value="0.296878" />
+      <inertia ixx="0.0003814" ixy="-0.0000003" ixz="-0.0000035" iyy="0.000406" iyz="0.0000002" izz="0.0001401" />
+    </inertial>
+  </link>
+
+  <link name="MHD1_HEADY">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mhd1_heady.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MHD1_HEADY_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mhd1_heady.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-0.0010285 -0.0025497 0.0187775" rpy="0 0 0" />
+      <mass value="0.201413" />
+      <inertia ixx="0.0000505" ixy="0.0000001" ixz="-0.0000002" iyy="0.0000677" iyz="0.0000007" izz="0.0000777" />
+    </inertial>
+  </link>
+
+  <link name="MHD2_HEADP">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mhd2_headp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MHD2_HEADP_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mhd2_headp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0344163 0.0000005 0.0559281" rpy="0 0 0" />
+      <mass value="9.869135" />
+      <inertia ixx="0.0359719" ixy="-0.0000002" ixz="0.003304" iyy="0.0452911" iyz="0.0000001" izz="0.0339321" />
+    </inertial>
+  </link>
+
+  <link name="MAR1_SHP">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mar1_shp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MAR1_SHP_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mar1_shp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-0.0020554 -0.0591199 0.0001072" rpy="0 0 0" />
+      <mass value="0.9833073" />
+      <inertia ixx="0.0012559" ixy="-0.0000128" ixz="-0.0000023" iyy="0.0009016" iyz="-0.0000002" izz="0.0011439" />
+    </inertial>
+  </link>
+
+  <link name="MAR2_SHR">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mar2_shr.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MAR2_SHR_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mar2_shr.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0410985 0.0000429 -0.0291185" rpy="0 0 0" />
+      <mass value="0.4022558" />
+      <inertia ixx="0.0007798" ixy="0.000001" ixz="-0.0000789" iyy="0.001045" iyz="-0.000001" izz="0.0006675" />
+    </inertial>
+  </link>
+
+  <link name="MAR3_SHY">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mar3_shy.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MAR3_SHY_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mar3_shy.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-0.0007195 0.0003 -0.080871" rpy="0 0 0" />
+      <mass value="1.1428363" />
+      <inertia ixx="0.0039329" ixy="-0.0000063" ixz="-0.0000327" iyy="0.0038871" iyz="0.0000275" izz="0.0008508" />
+    </inertial>
+  </link>
+
+  <link name="MAR4_ELP">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mar4_elp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MAR4_ELP_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mar4_elp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-0.0035492 0.0261498 -0.0282747" rpy="0 0 0" />
+      <mass value="0.3726778" />
+      <inertia ixx="0.0008883" ixy="-0.0000001" ixz="-0.0000104" iyy="0.0006216" iyz="-0.0000032" izz="0.0006027" />
+    </inertial>
+  </link>
+
+  <link name="FAR4_ELP">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/far4_elp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="FAR4_ELP_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/far4_elp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.0000573" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+  </link>
+
+  <link name="MAR5_WRY">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mar5_wry.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MAR5_WRY_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mar5_wry.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0002437 0.0016117 -0.0643613" rpy="0 0 0" />
+      <mass value="1.0783023" />
+      <inertia ixx="0.0023874" ixy="-0.0000029" ixz="-0.0000286" iyy="0.0022757" iyz="0.0000472" izz="0.0008335" />
+    </inertial>
+  </link>
+
+  <link name="MAR6_WRP">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mar6_wrp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MAR6_WRP_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mar6_wrp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-0.0056227 -0.0003006 -0.0000819" rpy="0 0 0" />
+      <mass value="0.4440746" />
+      <inertia ixx="0.0002069" ixy="-0.0000024" ixz="-0.0000004" iyy="0.0002256" iyz="0" izz="0.0002323" />
+    </inertial>
+  </link>
+
+  <link name="FAR6_WRP">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/far6_wrp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="FAR6_WRP_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/far6_wrp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.0000573" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+  </link>
+
+  <link name="MAL1_SHP">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mal1_shp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MAL1_SHP_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mal1_shp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0020554 0.0591199 0.0001072" rpy="0 0 0" />
+      <mass value="0.9833073" />
+      <inertia ixx="0.0012559" ixy="-0.0000128" ixz="0.0000023" iyy="0.0009016" iyz="0.0000002" izz="0.0011439" />
+    </inertial>
+  </link>
+
+  <link name="MAL2_SHR">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mal2_shr.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MAL2_SHR_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mal2_shr.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0352176 0.0000429 -0.0291185" rpy="0 0 0" />
+      <mass value="0.4022558" />
+      <inertia ixx="0.0007798" ixy="0.000001" ixz="-0.0000789" iyy="0.001045" iyz="-0.000001" izz="0.0006675" />
+    </inertial>
+  </link>
+
+  <link name="MAL3_SHY">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mal3_shy.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MAL3_SHY_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mal3_shy.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-0.0007195 0.0003 -0.080871" rpy="0 0 0" />
+      <mass value="1.1428363" />
+      <inertia ixx="0.0039329" ixy="-0.0000063" ixz="-0.0000327" iyy="0.0038871" iyz="0.0000275" izz="0.0008508" />
+    </inertial>
+  </link>
+
+  <link name="MAL4_ELP">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mal4_elp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MAL4_ELP_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mal4_elp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-0.0035492 0.0261498 -0.0282747" rpy="0 0 0" />
+      <mass value="0.3726778" />
+      <inertia ixx="0.0008883" ixy="-0.0000001" ixz="-0.0000104" iyy="0.0006216" iyz="-0.0000032" izz="0.0006027" />
+    </inertial>
+  </link>
+
+  <link name="FAL4_ELP">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/fal4_elp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="FAL4_ELP_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/fal4_elp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.0000573" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+  </link>
+
+  <link name="MAL5_WRY">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mal5_wry.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MAL5_WRY_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mal5_wry.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0002437 0.0016117 -0.0643613" rpy="0 0 0" />
+      <mass value="1.0783023" />
+      <inertia ixx="0.0023874" ixy="-0.0000029" ixz="-0.0000286" iyy="0.0022757" iyz="0.0000472" izz="0.0008335" />
+    </inertial>
+  </link>
+
+  <link name="MAL6_WRP">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mal6_wrp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MAL6_WRP_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mal6_wrp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-0.0056227 -0.0003006 -0.0000819" rpy="0 0 0" />
+      <mass value="0.4440746" />
+      <inertia ixx="0.0002069" ixy="-0.0000024" ixz="-0.0000004" iyy="0.0002256" iyz="0" izz="0.0002323" />
+    </inertial>
+  </link>
+
+  <link name="FAL6_WRP">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/fal6_wrp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="FAL6_WRP_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/fal6_wrp.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.0000573" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+  </link>
+
+  <link name="MRR2_WHEEL">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mrr2_wheel.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MRR2_WHEEL_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mrr2_wheel.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-0.0000002 -0.0501086 0.0000047" rpy="0 0 0" />
+      <mass value="0.4214852" />
+      <inertia ixx="0.0005331" ixy="0" ixz="0" iyy="0.000873" iyz="-0.0000001" izz="0.0005332" />
+    </inertial>
+  </link>
+
+  <link name="MRL2_WHEEL">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mrl2_wheel.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MRL2_WHEEL_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mrl2_wheel.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0000002 0.0501086 0.0000047" rpy="0 0 0" />
+      <mass value="0.4214852" />
+      <inertia ixx="0.0005331" ixy="0" ixz="0" iyy="0.000873" iyz="0.0000001" izz="0.0005332" />
+    </inertial>
+  </link>
+
+  <link name="MFR2_WHEEL">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mfr2_wheel.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MFR2_WHEEL_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mfr2_wheel.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-0.0000002 -0.0501086 0.0000047" rpy="0 0 0" />
+      <mass value="0.4214852" />
+      <inertia ixx="0.0005331" ixy="0" ixz="0" iyy="0.000873" iyz="-0.0000001" izz="0.0005332" />
+    </inertial>
+  </link>
+
+  <link name="MFL2_WHEEL">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mfl2_wheel.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="MFL2_WHEEL_mat">
+        <color rgba="0.49804314 0.49804314 0.49804314 1.00000000"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/mfl2_wheel.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0000002 0.0501086 0.0000047" rpy="0 0 0" />
+      <mass value="0.4214852" />
+      <inertia ixx="0.0005331" ixy="0" ixz="0" iyy="0.000873" iyz="0.0000001" izz="0.0005332" />
+    </inertial>
+  </link>
+
+  <joint name="Jfl1_hipr" type="revolute">
+    <parent link="MBASE" />
+    <child link="MFL1_HIPR" />
+    <origin xyz="0.17 0.165 0.078" rpy="0 0 0" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-1.9198622" upper="1.9198622" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jfr1_hipr" type="revolute">
+    <parent link="MBASE" />
+    <child link="MFR1_HIPR" />
+    <origin xyz="0.17 -0.165 0.078" rpy="0 0 0" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-1.9198622" upper="1.9198622" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jrl1_hipr" type="revolute">
+    <parent link="MBASE" />
+    <child link="MRL1_HIPR" />
+    <origin xyz="-0.17 0.165 0.078" rpy="0 0 0" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-1.9198622" upper="1.9198622" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jrr1_hipr" type="revolute">
+    <parent link="MBASE" />
+    <child link="MRR1_HIPR" />
+    <origin xyz="-0.17 -0.165 0.078" rpy="0 0 0" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-1.9198622" upper="1.9198622" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jb0_waistb" type="fixed">
+    <parent link="MBASE" />
+    <child link="MWAIST_BASE" />
+    <origin xyz="0 0 0.125" rpy="0 0 0" />
+  </joint>
+
+  <joint name="Jwb1_waistr" type="revolute">
+    <parent link="MWAIST_BASE" />
+    <child link="MWB1_WAISTR" />
+    <origin xyz="0 -0.05475 0.065" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-1.2217305" upper="0.0872665" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jwb2_waisty" type="revolute">
+    <parent link="MWB1_WAISTR" />
+    <child link="MWB2_WAISTY" />
+    <origin xyz="0.00001 0 0.41" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-2.0943951" upper="0.7853982" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jwb3_waistp" type="revolute">
+    <parent link="MWB2_WAISTY" />
+    <child link="MWB3_WAISTP" />
+    <origin xyz="0.03 0 0.32" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-0.8726646" upper="0.1745329" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jwb_al_root" type="fixed">
+    <parent link="MWB3_WAISTP" />
+    <child link="MAL0_BASE" />
+    <origin xyz="-0.0300232 0.13475 0.3284069" rpy="0 0 0" />
+  </joint>
+
+  <joint name="Jwb_ar_root" type="fixed">
+    <parent link="MWB3_WAISTP" />
+    <child link="MAR0_BASE" />
+    <origin xyz="-0.0299967 -0.02525 0.3284069" rpy="0 0 0" />
+  </joint>
+
+  <joint name="Jwb_head_root" type="fixed">
+    <parent link="MWB3_WAISTP" />
+    <child link="MHD_BASE" />
+    <origin xyz="-0.0609921 0.05475 0.405" rpy="0 0 0" />
+  </joint>
+
+  <joint name="Jhd1_heady" type="revolute">
+    <parent link="MHD_BASE" />
+    <child link="MHD1_HEADY" />
+    <origin xyz="0.012 0 0.0917" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.5707963" upper="1.5707963" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jhd2_headp" type="revolute">
+    <parent link="MHD1_HEADY" />
+    <child link="MHD2_HEADP" />
+    <origin xyz="-0.012 0 0.02025" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.5585054" upper="0.2792527" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jar1_armr" type="revolute">
+    <parent link="MAR0_BASE" />
+    <child link="MAR1_SHP" />
+    <origin xyz="0 -0.0555744 0.0058411" rpy="-0.1047198 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-2.268928" upper="3.1415927" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jar2_armp" type="revolute">
+    <parent link="MAR1_SHP" />
+    <child link="MAR2_SHR" />
+    <origin xyz="-0.0371305 -0.06875 0" rpy="0.1047198 0 0" />
+    <axis xyz="-1 0 0" />
+    <limit lower="-0.1047198" upper="3.1415927" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jar3_army" type="revolute">
+    <parent link="MAR2_SHR" />
+    <child link="MAR3_SHY" />
+    <origin xyz="0.0371165 -0.0000273 -0.0945529" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.5707963" upper="1.5707963" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jar4_elbp" type="revolute">
+    <parent link="MAR3_SHY" />
+    <child link="MAR4_ELP" />
+    <origin xyz="0 -0.0260116 -0.133688" rpy="-0.0000736 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit lower="0" upper="2.0943951" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jar4_clamp" type="fixed">
+    <parent link="MAR4_ELP" />
+    <child link="FAR4_ELP" />
+    <origin xyz="0.0000142 0.026 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="Jar5_wristy" type="revolute">
+    <parent link="MAR4_ELP" />
+    <child link="MAR5_WRY" />
+    <origin xyz="0 0.026 -0.0871975" rpy="0 0 0.0167631" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.5707963" upper="1.5707963" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jar6_wristr" type="revolute">
+    <parent link="MAR5_WRY" />
+    <child link="MAR6_WRP" />
+    <origin xyz="0.0000356 -0.0000001 -0.1784517" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-0.8726646" upper="0.8726646" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jar6_clamp" type="fixed">
+    <parent link="MAR6_WRP" />
+    <child link="FAR6_WRP" />
+    <origin xyz="0.024125 0 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="Jal1_armr" type="revolute">
+    <parent link="MAL0_BASE" />
+    <child link="MAL1_SHP" />
+    <origin xyz="0 0.0555744 0.0058411" rpy="0.1047198 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-2.268928" upper="3.1415927" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jal2_armp" type="revolute">
+    <parent link="MAL1_SHP" />
+    <child link="MAL2_SHR" />
+    <origin xyz="-0.03125 0.06875 0" rpy="-0.1047198 0 0" />
+    <axis xyz="-1 0 0" />
+    <limit lower="-3.1415927" upper="0.1047198" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jal3_army" type="revolute">
+    <parent link="MAL2_SHR" />
+    <child link="MAL3_SHY" />
+    <origin xyz="0.0312356 -0.0000273 -0.0945529" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.5707963" upper="1.5707963" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jal4_elbp" type="revolute">
+    <parent link="MAL3_SHY" />
+    <child link="MAL4_ELP" />
+    <origin xyz="0 -0.0260116 -0.133688" rpy="-0.0000736 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit lower="0" upper="2.0943951" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jal4_clamp" type="fixed">
+    <parent link="MAL4_ELP" />
+    <child link="FAL4_ELP" />
+    <origin xyz="0.0000142 0.026 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="Jal5_wristy" type="revolute">
+    <parent link="MAL4_ELP" />
+    <child link="MAL5_WRY" />
+    <origin xyz="0 0.026 -0.0871975" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.5707963" upper="1.5707963" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jal6_wristr" type="revolute">
+    <parent link="MAL5_WRY" />
+    <child link="MAL6_WRP" />
+    <origin xyz="0.0000356 -0.0000001 -0.1784517" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-0.8726646" upper="0.8726646" effort="1000000000" velocity="1000000000" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <joint name="Jal6_clamp" type="fixed">
+    <parent link="MAL6_WRP" />
+    <child link="FAL6_WRP" />
+    <origin xyz="0.024125 0 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="Jrr2_wheel" type="continuous">
+    <parent link="MRR1_HIPR" />
+    <child link="MRR2_WHEEL" />
+    <origin xyz="0 0.0483 -0.087" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+  </joint>
+
+  <joint name="Jrl2_wheel" type="continuous">
+    <parent link="MRL1_HIPR" />
+    <child link="MRL2_WHEEL" />
+    <origin xyz="0 -0.0483 -0.087" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+  </joint>
+
+  <joint name="Jfr2_wheel" type="continuous">
+    <parent link="MFR1_HIPR" />
+    <child link="MFR2_WHEEL" />
+    <origin xyz="0 0.0483 -0.087" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+  </joint>
+
+  <joint name="Jfl2_wheel" type="continuous">
+    <parent link="MFL1_HIPR" />
+    <child link="MFL2_WHEEL" />
+    <origin xyz="0 -0.0483 -0.087" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+  </joint>
+
+</robot>
