@@ -1,0 +1,96 @@
+{
+    "robot_root_name": "MBASE",
+    "human_root_name": "pelvis",
+    "ground_height": 0.0,
+    "human_height_assumption": 1.8,
+    "use_ik_match_table1": true,
+    "use_ik_match_table2": false,
+    "ik_match_table2": {},
+
+    "human_scale_table": {
+        "pelvis": 1.1,
+        "left_hip": 1.1,
+        "left_knee": 1.1,
+        "left_foot": 1.1,
+        "left_shoulder": 1.1,
+        "right_shoulder": 1.1,
+        "left_elbow": 1.1,
+        "right_elbow": 1.1,
+        "left_wrist": 1.1,
+        "right_wrist": 1.1
+    },
+
+    "ik_match_table1": {
+        "MBASE": [
+            "left_foot",
+            100,
+            10,
+            [0.0, 0.0, 0.0],
+            [0.5, -0.5, -0.5, -0.5]
+        ],
+        "MWB1_WAISTR": [
+            "left_knee",
+            0,
+            10,
+            [0.0, 0.0, 0.0],
+            [0.5, -0.5, -0.5, -0.5]
+        ],
+        "MWB2_WAISTY": [
+            "left_hip",
+            0,
+            10,
+            [0.0, 0.0, 0.0],
+            [0.5, -0.5, -0.5, -0.5]
+        ],
+        "MWB3_WAISTP": [
+            "pelvis",
+            0,
+            10,
+            [0.0, 0.0, 0.0],
+            [0.5, -0.5, -0.5, -0.5]
+        ],
+
+        "MAL2_SHR": [
+            "left_shoulder",
+            0,
+            10,
+            [0.0, 0.0, 0.0],
+            [0.70710678, 0.0, -0.70710678, 0.0]
+        ],
+        "MAL4_ELP": [
+            "left_elbow",
+            0,
+            10,
+            [0.0, 0.0, 0.0],
+            [0.70710678, 0.0, -0.70710678, 0.0]
+        ],
+        "MAL6_WRP": [
+            "left_wrist",
+            0,
+            10,
+            [0.0, 0.0, 0.0],
+            [0.70710678, 0.0, -0.70710678, 0.0]
+        ],
+        "MAR2_SHR": [
+            "right_shoulder",
+            0,
+            10,
+            [0.0, 0.0, 0.0],
+            [0.0, 0.70710678, 0.0, 0.70710678]
+        ],
+        "MAR4_ELP": [
+            "right_elbow",
+            0,
+            10,
+            [0.0, 0.0, 0.0],
+            [0.0, 0.70710678, 0.0, 0.70710678]
+        ],
+        "MAR6_WRP": [
+            "right_wrist",
+            0,
+            10,
+            [0.0, 0.0, 0.0],
+            [0.0, 0.70710678, 0.0, 0.70710678]
+        ]
+    }
+}
