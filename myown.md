@@ -8,7 +8,7 @@
 ]
 # 动作
 waving
-walking:outputs/sr1_v1_pro_walking.pkl
+walking:outputs/sr1_v1_pro_walking02_01.pkl
 
 cd /home/joshua/桌面/GMR-master && conda run -n gmr 
 
@@ -35,11 +35,32 @@ python scripts/smplx_to_robot.py \
   --save_path outputs/sr1_v1_pro_test.pkl \
   --auto_ground \
   --ground_offset 0.0
+
+ python scripts/smplx_to_robot.py --smplx_file amass_data/CMU/02/02_01_stageii.npz --robot sr1_v1_pro --save_path outputs/sr1_v1_pro_waving02_01.pkl
+# --wheelbase--
+python scripts/postprocess_wheeled_base.py \
+  --input /home/joshua/桌面/GMR-master/outputs/sr1_v1_pro_walking02_01.pkl \
+  --output /home/joshua/桌面/GMR-master/outputs/sr1_v1_pro_walking02_01_wheelbase_v2.pkl \
+  --z_window 21 \
+  --z_osc_scale 0.05 \
+  --z_lift 0.02 \
+  --attn_roll 0.20 \
+  --attn_pitch 0.20 \
+  --pitch_bias_deg -1.0 \
+  --euler_window 9
+
+
+python scripts/vis_robot_motion.py --robot sr1_v1_pro --robot_motion_path /home/joshua/桌面/GMR-master/outputs/sr1_v1_pro_walking02_01_wheelbase_v2.pkl
+
+
 # play
 不录制
 python scripts/vis_robot_motion.py \
   --robot sr1_v1 \
   --robot_motion_path outputs/sr1_v1_test.pkl
+
+python scripts/vis_robot_motion.py --robot sr1_v1_promax --robot_motion_path outputs/sr1_v1_promax_waving.pkl
+
 录制
 python scripts/vis_robot_motion.py \
   --robot sr1_v1_pro \
@@ -47,6 +68,11 @@ python scripts/vis_robot_motion.py \
   --record_video \
   --video_path videos/sr1_v1_pro_test.mp4
 
+python scripts/vis_robot_motion.py \
+  --robot galaxea_r1pro \
+  --robot_motion_path outputs/galaxea_r1pro_waving.pkl \
+  --record_video \
+  --video_path videos/galaxea_r1pro_waving.mp4
 
 # 出数据
 python scripts/smplx_to_robot_dataset.py \

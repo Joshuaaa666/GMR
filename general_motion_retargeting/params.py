@@ -25,6 +25,7 @@ ROBOT_XML_DICT = {
     "fourier_gr3": ASSET_ROOT / "fourier_gr3v2_1_1" / "mjcf" / "gr3v2_1_1_dummy_hand.xml",
     "sr1_v1": ASSET_ROOT / "SR1_V1.0.0" / "sr1_v1_mocap.xml",
     "sr1_v1_pro": ASSET_ROOT / "SR1_V1.0.0" / "sr1_v1_mocap.xml",
+    "sr1_v1_promax": ASSET_ROOT / "SR1_V1.0.0" / "sr1_v1_mocap.xml",
 }
 
 IK_CONFIG_DICT = {
@@ -49,6 +50,7 @@ IK_CONFIG_DICT = {
         "fourier_gr3": IK_CONFIG_ROOT / "smplx_to_gr3.json",
         "sr1_v1": IK_CONFIG_ROOT / "smplx_to_sr1_v1.json",
         "sr1_v1_pro": IK_CONFIG_ROOT / "smplx_to_sr1_v1_pro.json",
+        "sr1_v1_promax": IK_CONFIG_ROOT / "smplx_to_sr1_v1_promax.json",
     },
     "bvh_lafan1":{
         "unitree_g1": IK_CONFIG_ROOT / "bvh_lafan1_to_g1.json",
@@ -104,6 +106,7 @@ ROBOT_BASE_DICT = {
     "fourier_gr3": "base_link",
     "sr1_v1": "MBASE",
     "sr1_v1_pro": "MBASE",
+    "sr1_v1_promax": "MBASE",
 }
 
 VIEWER_CAM_DISTANCE_DICT = {
@@ -127,4 +130,5 @@ VIEWER_CAM_DISTANCE_DICT = {
     "fourier_gr3": 2.0,
     "sr1_v1": 5.0,
     "sr1_v1_pro": 5.0,
+    "sr1_v1_promax": 5.0,
 }
