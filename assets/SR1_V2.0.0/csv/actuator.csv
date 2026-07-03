@@ -1,0 +1,8 @@
+Actuator Name,Joint Name,Velocity Limit,Effort Limit
+R1_shp,J1_shp,60,97
+R2_shr,J2_shr,60,97
+R3_shy,J3_shy,100,27
+R4_elp,J4_elp,100,27
+R5_ely,J5_ely,400,7
+R6_wrp,J6_wrp,400,7
+R7_wry,J7_wry,400,7

@@ -1,0 +1,224 @@
+<mujoco model='Xtellar.Robotics/Kirin7j-Prototype'>
+    <compiler meshdir='../meshes' />
+
+    <default>
+        <default class='viscol'>
+            <geom
+                type='mesh' rgba='0.7529411764705882 0.7529411764705882 0.7529411764705882 1.0'
+                contype='0' conaffinity='0' density='0'
+            />
+        </default>
+        <joint damping='0.1' frictionloss='0.2' armature='0.01' actuatorgravcomp='true' />
+    </default>
+
+    <asset>
+        <mesh name='m0_base' file='m0_base.stl' scale='0.001 0.001 0.001' />
+        <mesh name='m1_shp'  file='m1_shp.stl'  scale='0.001 0.001 0.001' />
+        <mesh name='m2_shr'  file='m2_shr.stl'  scale='0.001 0.001 0.001' />
+        <mesh name='m3_shy'  file='m3_shy.stl'  scale='0.001 0.001 0.001' />
+        <mesh name='m4_elp'  file='m4_elp.stl'  scale='0.001 0.001 0.001' />
+        <mesh name='m5_ely'  file='m5_ely.stl'  scale='0.001 0.001 0.001' />
+        <mesh name='m6_wrp'  file='m6_wrp.stl'  scale='0.001 0.001 0.001' />
+    </asset>
+
+    <worldbody>
+        <body
+            name="F_arm_base"
+            pos="0.000000000e+00 0.000000000e+00 0.000000000e+00"
+            euler="0.000000000e+00 0.000000000e+00 0.000000000e+00"
+        >
+
+            <body
+                name="L0_base"
+                pos="0.000000000e+00 0.000000000e+00 0.000000000e+00"
+                euler="-0.000000000e+00 0.000000000e+00 -9.000000000e+01"
+                gravcomp="1"
+            >
+
+                <inertial
+                    pos="4.109030200e-05 -2.908991500e-04 -2.392353000e-02"
+                    mass="7.513056400e-01"
+                    euler="1.928000000e+00 -2.450000000e-01 8.930800000e+01"
+                    diaginertia="3.544385600e-04 3.587574700e-04 5.362551200e-04"
+                />
+                <geom class='viscol' mesh='m0_base' />
+
+                <body
+                    name="L1_shp"
+                    pos="0.000000000e+00 0.000000000e+00 -5.250000000e-02"
+                    euler="-0.000000000e+00 0.000000000e+00 -0.000000000e+00"
+                    gravcomp="1"
+                >
+                    <joint
+                        name="J1_shp"
+                        type="hinge"
+                        axis="0 0 -1"
+                        range="-1.610000000e+02 1.590000000e+02"
+                    />
+
+                    <inertial
+                        pos="2.436836000e-06 6.697668200e-03 -5.444207100e-03"
+                        mass="7.433007200e-01"
+                        euler="-8.943700000e+01 0.000000000e+00 -9.001200000e+01"
+                        diaginertia="2.986662800e-04 4.175343900e-04 5.472246000e-04"
+                    />
+                    <geom class='viscol' mesh='m1_shp' />
+
+                    <body
+                        name="L2_shr"
+                        pos="0.000000000e+00 3.675000000e-02 -5.825000000e-02"
+                        euler="-0.000000000e+00 0.000000000e+00 -0.000000000e+00"
+                        gravcomp="1"
+                    >
+                        <joint
+                            name="J2_shr"
+                            type="hinge"
+                            axis="0 1 0"
+                            range="-1.000000000e+02 9.900000000e+01"
+                        />
+
+                        <inertial
+                            pos="0.000000000e+00 -8.227998300e-03 -3.102691300e-02"
+                            mass="9.403290500e-02"
+                            euler="-0.000000000e+00 -9.000000000e+01 4.468800000e+01"
+                            diaginertia="2.261095400e-05 7.052407800e-05 7.428608300e-05"
+                        />
+                        <geom class='viscol' mesh='m2_shr' />
+
+                        <body
+                            name="L3_shy"
+                            pos="0.000000000e+00 -3.675000000e-02 -5.500000000e-02"
+                            euler="-0.000000000e+00 0.000000000e+00 -0.000000000e+00"
+                            gravcomp="1"
+                        >
+                            <joint
+                                name="J3_shy"
+                                type="hinge"
+                                axis="0 0 -1"
+                                range="-1.610000000e+02 1.590000000e+02"
+                            />
+
+                            <inertial
+                                pos="-3.889066400e-03 -2.998447700e-04 -7.154584900e-02"
+                                mass="9.018101600e-01"
+                                euler="-8.946000000e+01 1.218000000e+00 -9.109900000e+01"
+                                diaginertia="4.211066700e-04 2.566870300e-03 2.627868900e-03"
+                            />
+                            <geom class='viscol' mesh='m3_shy' />
+
+                            <body
+                                name="L4_elp"
+                                pos="-2.700000000e-02 0.000000000e+00 -1.250000000e-01"
+                                euler="-0.000000000e+00 0.000000000e+00 -0.000000000e+00"
+                                gravcomp="1"
+                            >
+                                <joint
+                                    name="J4_elp"
+                                    type="hinge"
+                                    axis="-1 0 0"
+                                    range="-1.300000000e+02 1.300000000e+02"
+                                />
+
+                                <inertial
+                                    pos="2.083897600e-02 -1.099565100e-05 -9.761322300e-02"
+                                    mass="4.288310600e-01"
+                                    euler="-9.031000000e+01 -7.690000000e-01 -1.111820000e+02"
+                                    diaginertia="1.645199600e-04 6.125182600e-04 6.226433900e-04"
+                                />
+                                <geom class='viscol' mesh='m4_elp' />
+
+                                <body
+                                    name="F_elbow"
+                                    pos="0.000000000e+00 0.000000000e+00 0.000000000e+00"
+                                    euler="-0.000000000e+00 0.000000000e+00 -0.000000000e+00"
+                                >
+                                </body>
+
+                                <body
+                                    name="L5_ely"
+                                    pos="2.700000000e-02 0.000000000e+00 -1.360000000e-01"
+                                    euler="-0.000000000e+00 0.000000000e+00 -0.000000000e+00"
+                                    gravcomp="1"
+                                >
+                                    <joint
+                                        name="J5_ely"
+                                        type="hinge"
+                                        axis="0 0 -1"
+                                        range="-1.680000000e+02 1.710000000e+02"
+                                    />
+
+                                    <inertial
+                                        pos="-2.861732300e-03 -1.236764400e-05 -3.744200600e-02"
+                                        mass="3.812777700e-01"
+                                        euler="-9.007100000e+01 -5.690000000e-01 -8.864900000e+01"
+                                        diaginertia="1.614288900e-04 1.936417000e-04 1.990961900e-04"
+                                    />
+                                    <geom class='viscol' mesh='m5_ely' />
+
+                                    <body
+                                        name="L6_wrp"
+                                        pos="-2.350000000e-02 0.000000000e+00 -4.095000000e-02"
+                                        euler="-0.000000000e+00 0.000000000e+00 -0.000000000e+00"
+                                        gravcomp="1"
+                                    >
+                                        <joint
+                                            name="J6_wrp"
+                                            type="hinge"
+                                            axis="-1 0 0"
+                                            range="-1.010000000e+02 9.900000000e+01"
+                                        />
+
+                                        <inertial
+                                            pos="1.875430500e-02 -1.204262000e-05 -7.393441100e-02"
+                                            mass="3.915396300e-01"
+                                            euler="-9.073400000e+01 -1.566000000e+00 -1.146180000e+02"
+                                            diaginertia="1.507336400e-04 4.066905400e-04 4.116353400e-04"
+                                        />
+                                        <geom class='viscol' mesh='m6_wrp' />
+
+                                        <body
+                                            name="F_ee_base"
+                                            pos="2.400000000e-02 0.000000000e+00 -1.090000000e-01"
+                                            euler="-0.000000000e+00 0.000000000e+00 -0.000000000e+00"
+                                            gravcomp="1"
+                                        >
+                                            <joint
+                                                name="J7_wry"
+                                                type="hinge"
+                                                axis="0 0 -1"
+                                                range="-1.790000000e+02 1.790000000e+02"
+                                            />
+
+                                            <inertial pos="0 0 0" mass="1e-14" diaginertia="1e-14 1e-14 1e-14" />
+
+                                            <site pos='0.05 0 0' size='0.05 0.001 0.001' type='box' rgba='1 0 0 1' group='3' />
+                                            <site pos='0 0.05 0' size='0.001 0.05 0.001' type='box' rgba='0 1 0 1' group='3' />
+                                            <site pos='0 0 0.05' size='0.001 0.001 0.05' type='box' rgba='0 0 1 1' group='3' />
+                                        </body>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+
+    <contact>
+        <exclude body1='L0_base' body2='L1_shp' />
+        <exclude body1='L1_shp'  body2='L2_shr' />
+        <exclude body1='L2_shr'  body2='L3_shy' />
+        <exclude body1='L3_shy'  body2='L4_elp' />
+        <exclude body1='L4_elp'  body2='L5_ely' />
+        <exclude body1='L5_ely'  body2='L6_wrp' />
+        <exclude body1='L6_wrp'  body2='F_ee_base' />
+
+        <exclude body1='L0_base' body2='L2_shr' />
+        <exclude body1='L1_shp'  body2='L3_shy' />
+        <exclude body1='L2_shr'  body2='L4_elp' />
+        <exclude body1='L3_shy'  body2='L5_ely' />
+        <exclude body1='L4_elp'  body2='L6_wrp' />
+        <exclude body1='L5_ely'  body2='F_ee_base' />
+    </contact>
+</mujoco>

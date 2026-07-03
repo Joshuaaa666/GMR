@@ -1,0 +1,2 @@
+Units Standard,Orientation Format,Orientation Euler Unit,Inertia Format,Inertia Orientation Format,Inertia Euler Unit,Revolute Motor Range Unit,Revolute Motor Velocity Unit,Linear Motor Range Unit,Linear Motor Velocity Unit
+millimeter.kilogram,rotation_matrix,radian,diagonal,body_roll_pitch_yaw,degree,degree,revolutions_per_minute,millimeter,meter_per_second

@@ -35,7 +35,7 @@ if __name__ == "__main__":
         choices=["unitree_g1", "unitree_g1_with_hands", "unitree_h1", "unitree_h1_2",
                  "booster_t1", "booster_t1_29dof","stanford_toddy", "fourier_n1", 
                 "engineai_pm01", "kuavo_s45", "hightorque_hi", "galaxea_r1pro", "berkeley_humanoid_lite", "booster_k1",
-                "pnd_adam_lite", "openloong", "tienkung", "fourier_gr3", "sr1_v1", "sr1_v1_pro", "sr1_v1_promax"],
+                "pnd_adam_lite", "openloong", "tienkung", "fourier_gr3", "sr1_v1", "sr1_v1_pro", "sr1_v1_promax", "sr1_v2"],
         default="unitree_g1",
     )
     
@@ -58,12 +58,48 @@ if __name__ == "__main__":
         action="store_true",
         help="Record the video.",
     )
+    parser.add_argument(
+        "--no_viewer",
+        default=False,
+        action="store_true",
+        help="Retarget and save without opening the MuJoCo viewer.",
+    )
 
     parser.add_argument(
         "--rate_limit",
         default=False,
         action="store_true",
         help="Limit the rate of the retargeted robot motion to keep the same as the human motion.",
+    )
+    parser.add_argument(
+        "--target_fps",
+        type=float,
+        default=30,
+        help="Target FPS for the saved/retargeted motion.",
+    )
+    parser.add_argument(
+        "--no_pre_downsample",
+        default=False,
+        action="store_true",
+        help="Disable pre-downsampling before the SMPL-X forward pass.",
+    )
+    parser.add_argument(
+        "--start_frame",
+        type=int,
+        default=0,
+        help="First source frame to process.",
+    )
+    parser.add_argument(
+        "--end_frame",
+        type=int,
+        default=None,
+        help="Exclusive source frame at which to stop processing.",
+    )
+    parser.add_argument(
+        "--max_frames",
+        type=int,
+        default=None,
+        help="Maximum number of source frames to process after applying start/end/downsampling.",
     )
     parser.add_argument(
         "--auto_ground",
@@ -78,19 +114,67 @@ if __name__ == "__main__":
         help="Additional z offset applied after auto grounding (meters).",
     )
 
+    parser.add_argument(
+        "--cold_start",
+        default=False,
+        action="store_true",
+        help=(
+            "Re-seed the IK to the model's neutral pose (qpos0) before every frame instead of "
+            "warm-starting from the previous frame. Prevents the IK from getting stuck in a "
+            "flipped branch (e.g. sr1_v2 left shoulder flipping to -170deg). Recommended for "
+            "short-armed / redundant robots; combine with light DoF smoothing afterwards."
+        ),
+    )
+
     args = parser.parse_args()
 
 
     SMPLX_FOLDER = HERE / ".." / "assets" / "body_models"
     
     
+    tgt_fps = args.target_fps
+    smplx_meta = np.load(args.smplx_file, allow_pickle=True)
+    src_fps = float(smplx_meta["mocap_frame_rate"])
+    num_source_frames = smplx_meta["pose_body"].shape[0]
+    start_frame = max(0, args.start_frame)
+    end_frame = num_source_frames if args.end_frame is None else min(args.end_frame, num_source_frames)
+    if end_frame <= start_frame:
+        raise ValueError(
+            f"Invalid frame range: start_frame={start_frame}, end_frame={end_frame}, "
+            f"source frames={num_source_frames}"
+        )
+
+    frame_stride = 1
+    if not args.no_pre_downsample and tgt_fps < src_fps:
+        frame_stride = max(1, int(round(src_fps / tgt_fps)))
+
+    selected_frames = np.arange(start_frame, end_frame, frame_stride, dtype=np.int64)
+    if args.max_frames is not None:
+        selected_frames = selected_frames[: args.max_frames]
+    if len(selected_frames) == 0:
+        raise ValueError("No SMPL-X frames selected for processing.")
+
+    frame_indices = None
+    fps_scale = 1.0
+    if (
+        len(selected_frames) != num_source_frames
+        or selected_frames[0] != 0
+        or frame_stride != 1
+    ):
+        frame_indices = selected_frames
+        fps_scale = 1.0 / frame_stride
+        print(
+            f"Preprocessing SMPL-X frames: source={num_source_frames} @ {src_fps:g} FPS, "
+            f"selected={len(selected_frames)} frames, stride={frame_stride}, "
+            f"effective_fps={src_fps * fps_scale:g}"
+        )
+
     # Load SMPLX trajectory
     smplx_data, body_model, smplx_output, actual_human_height = load_smplx_file(
-        args.smplx_file, SMPLX_FOLDER
+        args.smplx_file, SMPLX_FOLDER, frame_indices=frame_indices, fps_scale=fps_scale
     )
     
     # align fps
-    tgt_fps = 30
     smplx_data_frames, aligned_fps = get_smplx_data_offline_fast(smplx_data, body_model, smplx_output, tgt_fps=tgt_fps)
     
    
@@ -100,12 +184,17 @@ if __name__ == "__main__":
         src_human="smplx",
         tgt_robot=args.robot,
     )
-    
-    robot_motion_viewer = RobotMotionViewer(robot_type=args.robot,
-                                            motion_fps=aligned_fps,
-                                            transparent_robot=0,
-                                            record_video=args.record_video,
-                                            video_path=f"videos/{args.robot}_{args.smplx_file.split('/')[-1].split('.')[0]}.mp4",)
+
+    # Neutral pose used to re-seed the IK each frame when --cold_start is set.
+    neutral_qpos = retarget.configuration.model.qpos0.copy()
+
+    robot_motion_viewer = None
+    if not args.no_viewer:
+        robot_motion_viewer = RobotMotionViewer(robot_type=args.robot,
+                                                motion_fps=aligned_fps,
+                                                transparent_robot=0,
+                                                record_video=args.record_video,
+                                                video_path=f"videos/{args.robot}_{args.smplx_file.split('/')[-1].split('.')[0]}.mp4",)
     
 
     curr_frame = 0
@@ -143,21 +232,24 @@ if __name__ == "__main__":
         # Update task targets.
         smplx_data = smplx_data_frames[i]
 
-        # retarget
+        # retarget (optionally re-seed to neutral to avoid stuck IK branches)
+        if args.cold_start:
+            retarget.configuration.update(neutral_qpos)
         qpos = retarget.retarget(smplx_data)
 
         # visualize
-        robot_motion_viewer.step(
-            root_pos=qpos[:3],
-            root_rot=qpos[3:7],
-            dof_pos=qpos[7:],
-            human_motion_data=retarget.scaled_human_data,
-            # human_motion_data=smplx_data,
-            human_pos_offset=np.array([0.0, 0.0, 0.0]),
-            show_human_body_name=False,
-            rate_limit=args.rate_limit,
-            follow_camera=False,
-        )
+        if robot_motion_viewer is not None:
+            robot_motion_viewer.step(
+                root_pos=qpos[:3],
+                root_rot=qpos[3:7],
+                dof_pos=qpos[7:],
+                human_motion_data=retarget.scaled_human_data,
+                # human_motion_data=smplx_data,
+                human_pos_offset=np.array([0.0, 0.0, 0.0]),
+                show_human_body_name=False,
+                rate_limit=args.rate_limit,
+                follow_camera=False,
+            )
         if args.save_path is not None:
             qpos_list.append(qpos)
             
@@ -200,4 +292,5 @@ if __name__ == "__main__":
             
       
     
-    robot_motion_viewer.close()
+    if robot_motion_viewer is not None:
+        robot_motion_viewer.close()

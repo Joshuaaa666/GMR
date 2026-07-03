@@ -11,8 +11,19 @@ def load_smpl_file(smpl_file):
     smpl_data = np.load(smpl_file, allow_pickle=True)
     return smpl_data
 
-def load_smplx_file(smplx_file, smplx_body_model_path):
-    smplx_data = np.load(smplx_file, allow_pickle=True)
+def load_smplx_file(smplx_file, smplx_body_model_path, frame_indices=None, fps_scale=1.0):
+    smplx_npz = np.load(smplx_file, allow_pickle=True)
+    if frame_indices is None:
+        smplx_data = smplx_npz
+    else:
+        smplx_data = {
+            "gender": smplx_npz["gender"],
+            "mocap_frame_rate": smplx_npz["mocap_frame_rate"] * fps_scale,
+            "betas": smplx_npz["betas"],
+            "root_orient": smplx_npz["root_orient"][frame_indices],
+            "pose_body": smplx_npz["pose_body"][frame_indices],
+            "trans": smplx_npz["trans"][frame_indices],
+        }
     body_model = smplx.create(
         smplx_body_model_path,
         "smplx",

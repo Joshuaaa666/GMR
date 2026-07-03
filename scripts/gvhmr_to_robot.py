@@ -27,9 +27,9 @@ if __name__ == "__main__":
     parser.add_argument(
         "--robot",
         choices=["unitree_g1", "unitree_g1_with_hands", "unitree_h1", "unitree_h1_2",
-                 "booster_t1", "booster_t1_29dof","stanford_toddy", "fourier_n1", 
+                 "booster_t1", "booster_t1_29dof","stanford_toddy", "fourier_n1",
                 "engineai_pm01", "kuavo_s45", "hightorque_hi", "galaxea_r1pro", "berkeley_humanoid_lite", "booster_k1",
-                "pnd_adam_lite", "openloong", "tienkung", "sr1_v1"],
+                "pnd_adam_lite", "openloong", "tienkung", "sr1_v1", "sr1_v1_pro", "sr1_v2"],
         default="unitree_g1",
     )
     
@@ -60,6 +60,18 @@ if __name__ == "__main__":
         help="Limit the rate of the retargeted robot motion to keep the same as the human motion.",
     )
 
+    parser.add_argument(
+        "--cold_start",
+        default=False,
+        action="store_true",
+        help=(
+            "Re-seed the IK to the model's neutral pose (qpos0) before every frame instead of "
+            "warm-starting from the previous frame. Prevents the IK from getting stuck in a "
+            "flipped branch (e.g. sr1_v2 left shoulder flipping to -170deg). Recommended for "
+            "short-armed / redundant robots; combine with light DoF smoothing afterwards."
+        ),
+    )
+
     args = parser.parse_args()
 
 
@@ -83,6 +95,9 @@ if __name__ == "__main__":
         src_human="smplx",
         tgt_robot=args.robot,
     )
+
+    # Neutral pose used to re-seed the IK each frame when --cold_start is set.
+    neutral_qpos = retarget.configuration.model.qpos0.copy()
     
     robot_motion_viewer = RobotMotionViewer(robot_type=args.robot,
                                             motion_fps=aligned_fps,
@@ -126,7 +141,9 @@ if __name__ == "__main__":
         # Update task targets.
         smplx_data = smplx_data_frames[i]
 
-        # retarget
+        # retarget (optionally re-seed to neutral to avoid stuck IK branches)
+        if args.cold_start:
+            retarget.configuration.update(neutral_qpos)
         qpos = retarget.retarget(smplx_data)
 
         # visualize

@@ -1,0 +1,10 @@
+Joint Name,Parent Link,Child Link,X,Y,Z,R00,R01,R02,R10,R11,R12,R20,R21,R22,Joint Type,Axis X,Axis Y,Axis Z,Range Min,Range Max
+J_F_arm_base_L0_base,F_arm_base,L0_base,0,0,0,0,1,0,-1,0,0,0,0,1,Fixed,0,0,0,0,0
+J1_shp,L0_base,L1_shp,0,0,-52.5,1,0,0,0,1,0,0,0,1,Revolute,0,0,-1,-161,159
+J2_shr,L1_shp,L2_shr,0,36.75,-58.25,1,0,0,0,1,0,0,0,1,Revolute,0,1,0,-100,99
+J3_shy,L2_shr,L3_shy,0,-36.75,-55,1,0,0,0,1,0,0,0,1,Revolute,0,0,-1,-161,159
+J4_elp,L3_shy,L4_elp,-27,0,-125,1,0,0,0,1,0,0,0,1,Revolute,-1,0,0,-130,130
+J_L4_elp_F_elbow,L4_elp,F_elbow,0,0,0,1,0,0,0,1,0,0,0,1,Fixed,0,0,0,0,0
+J5_ely,L4_elp,L5_ely,27,0,-136,1,0,0,0,1,0,0,0,1,Revolute,0,0,-1,-168,171
+J6_wrp,L5_ely,L6_wrp,-23.5,0,-40.95,1,0,0,0,1,0,0,0,1,Revolute,-1,0,0,-101,99
+J7_wry,L6_wrp,F_ee_base,24,0,-109,1,0,0,0,1,0,0,0,1,Revolute,0,0,-1,-179,179

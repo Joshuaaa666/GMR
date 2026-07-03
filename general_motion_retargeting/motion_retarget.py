@@ -98,8 +98,37 @@ class GeneralMotionRetargeting:
         self.ik_limits = [mink.ConfigurationLimit(self.model)]
         if use_velocity_limit:
             VELOCITY_LIMITS = {k: 3*np.pi for k in self.robot_motor_names.keys()}
-            self.ik_limits.append(mink.VelocityLimit(self.model, VELOCITY_LIMITS)) 
-            
+            self.ik_limits.append(mink.VelocityLimit(self.model, VELOCITY_LIMITS))
+
+        # Optional self-collision avoidance (e.g. keep the two hands from interpenetrating).
+        # Config format (in the IK config JSON):
+        #   "self_collision": {
+        #       "minimum_distance": 0.03, "detection_distance": 0.12, "gain": 0.85,
+        #       "body_pairs": [ [["L_L7_wrr",...], ["R_L7_wrr",...]], [["L_L7_wrr"], ["MBASE"]] ]
+        #   }
+        # Each body list is expanded to its collidable geoms (contype!=0); the limit keeps
+        # any geom in group A away from any geom in group B. Needs collision geoms on those
+        # bodies (see gen_mocap_xml.py adding *_hand_col spheres for sr1_v2).
+        sc = ik_config.get("self_collision")
+        if sc:
+            def _geoms_of(body_names):
+                gids = []
+                for bn in body_names:
+                    bid = mj.mj_name2id(self.model, mj.mjtObj.mjOBJ_BODY, bn)
+                    gids += [g for g in range(self.model.ngeom)
+                             if self.model.geom_bodyid[g] == bid and self.model.geom_contype[g] != 0]
+                return gids
+            geom_pairs = [(_geoms_of(a), _geoms_of(b)) for a, b in sc["body_pairs"]]
+            geom_pairs = [(a, b) for a, b in geom_pairs if a and b]
+            if geom_pairs:
+                self.ik_limits.append(mink.CollisionAvoidanceLimit(
+                    self.model, geom_pairs,
+                    minimum_distance_from_collisions=sc.get("minimum_distance", 0.02),
+                    collision_detection_distance=sc.get("detection_distance", 0.1),
+                    gain=sc.get("gain", 0.85)))
+                if verbose:
+                    print(f"[GMR] Self-collision avoidance on {len(geom_pairs)} body-pair group(s)")
+
         self.setup_retarget_configuration()
         
         self.ground_offset = 0.0
@@ -179,7 +208,7 @@ class GeneralMotionRetargeting:
             curr_error = self.error1()
             dt = self.configuration.model.opt.timestep
             vel1 = mink.solve_ik(
-                self.configuration, self.tasks1, dt, self.solver, self.damping, self.ik_limits
+                self.configuration, self.tasks1, dt, self.solver, self.damping, limits=self.ik_limits
             )
             self.configuration.integrate_inplace(vel1, dt)
             next_error = self.error1()
@@ -188,7 +217,7 @@ class GeneralMotionRetargeting:
                 curr_error = next_error
                 dt = self.configuration.model.opt.timestep
                 vel1 = mink.solve_ik(
-                    self.configuration, self.tasks1, dt, self.solver, self.damping, self.ik_limits
+                    self.configuration, self.tasks1, dt, self.solver, self.damping, limits=self.ik_limits
                 )
                 self.configuration.integrate_inplace(vel1, dt)
                 next_error = self.error1()
@@ -198,7 +227,7 @@ class GeneralMotionRetargeting:
             curr_error = self.error2()
             dt = self.configuration.model.opt.timestep
             vel2 = mink.solve_ik(
-                self.configuration, self.tasks2, dt, self.solver, self.damping, self.ik_limits
+                self.configuration, self.tasks2, dt, self.solver, self.damping, limits=self.ik_limits
             )
             self.configuration.integrate_inplace(vel2, dt)
             next_error = self.error2()
@@ -208,7 +237,7 @@ class GeneralMotionRetargeting:
                 # Solve the IK problem with the second task
                 dt = self.configuration.model.opt.timestep
                 vel2 = mink.solve_ik(
-                    self.configuration, self.tasks2, dt, self.solver, self.damping, self.ik_limits
+                    self.configuration, self.tasks2, dt, self.solver, self.damping, limits=self.ik_limits
                 )
                 self.configuration.integrate_inplace(vel2, dt)
                 
@@ -268,14 +297,17 @@ class GeneralMotionRetargeting:
     def offset_human_data(self, human_data, pos_offsets, rot_offsets):
         """the pos offsets are applied in the local frame"""
         offset_human_data = {}
+        _identity_rot = R.identity()
         for body_name in human_data.keys():
             pos, quat = human_data[body_name]
             offset_human_data[body_name] = [pos, quat]
-            # apply rotation offset first
-            updated_quat = (R.from_quat(quat, scalar_first=True) * rot_offsets[body_name]).as_quat(scalar_first=True)
+            # apply rotation offset first (unmapped bodies, e.g. the human root when it
+            # is not itself an IK target, pass through with identity/zero offset)
+            rot_offset = rot_offsets.get(body_name, _identity_rot)
+            updated_quat = (R.from_quat(quat, scalar_first=True) * rot_offset).as_quat(scalar_first=True)
             offset_human_data[body_name][1] = updated_quat
-            
-            local_offset = pos_offsets[body_name]
+
+            local_offset = pos_offsets.get(body_name, np.zeros(3))
             # compute the global position offset using the updated rotation
             global_pos_offset = R.from_quat(updated_quat, scalar_first=True).apply(local_offset)
             

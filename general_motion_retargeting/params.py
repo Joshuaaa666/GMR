@@ -26,6 +26,7 @@ ROBOT_XML_DICT = {
     "sr1_v1": ASSET_ROOT / "SR1_V1.0.0" / "sr1_v1_mocap.xml",
     "sr1_v1_pro": ASSET_ROOT / "SR1_V1.0.0" / "sr1_v1_mocap.xml",
     "sr1_v1_promax": ASSET_ROOT / "SR1_V1.0.0" / "sr1_v1_mocap.xml",
+    "sr1_v2": ASSET_ROOT / "SR1_V2.0.0" / "sr1_v2_mocap.xml",
 }
 
 IK_CONFIG_DICT = {
@@ -51,6 +52,7 @@ IK_CONFIG_DICT = {
         "sr1_v1": IK_CONFIG_ROOT / "smplx_to_sr1_v1.json",
         "sr1_v1_pro": IK_CONFIG_ROOT / "smplx_to_sr1_v1_pro.json",
         "sr1_v1_promax": IK_CONFIG_ROOT / "smplx_to_sr1_v1_promax.json",
+        "sr1_v2": IK_CONFIG_ROOT / "smplx_to_sr1_v2.json",
     },
     "bvh_lafan1":{
         "unitree_g1": IK_CONFIG_ROOT / "bvh_lafan1_to_g1.json",
@@ -107,6 +109,7 @@ ROBOT_BASE_DICT = {
     "sr1_v1": "MBASE",
     "sr1_v1_pro": "MBASE",
     "sr1_v1_promax": "MBASE",
+    "sr1_v2": "MBASE",
 }
 
 VIEWER_CAM_DISTANCE_DICT = {
@@ -131,4 +134,5 @@ VIEWER_CAM_DISTANCE_DICT = {
     "sr1_v1": 5.0,
     "sr1_v1_pro": 5.0,
     "sr1_v1_promax": 5.0,
+    "sr1_v2": 5.0,
 }
